@@ -3,7 +3,6 @@
 
 
 /**
-
  *main - Print _putchar
 
  *Return: Always 0(Success)
