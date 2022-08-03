@@ -1,1 +1,0 @@
-Basically function pointers
