@@ -1,15 +1,20 @@
+/*
+*File: is the function lowercase or uppercase
+*Auth: Dr Marcus Imagwe
+*/
+
 #include "main.h"
 /**
- *_isalpha - function to check if c is a letter, lowercase or uppercase
- *@c: is the int that will use for the argument of the function
- *Return: 0
- **/
+*_isalpha -check if a character is lowercase or uppercase.
+*@c: The character to be checked.
+*
+* Return: 1 if character is lowercase or uppercase, or otherwise.
+*/
+
 int _isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-	{
-	return (1);
-	}
+	if ((c >= 97 && c <= 122) || (c >= 65 && c <= 90))
+		return (1);
 	else
-	return (0);
+		return (0);
 }

@@ -1,17 +1,27 @@
 #include "main.h"
+
 /**
-* string_toupper - changes all lowercase letters to uppercase
-* @s: string to change
-* Return: address of s
-*/
-char *string_toupper(char *s)
-{
-int i = 0;
-while (*(s + i))
-{
-if (*(s + i) >= 'a' && *(s + i) <= 'z')
-*(s + i) -= 'a' - 'A';
-i++;
-}
-return (s);
+  * string_toupper - Changes all lowercase letters to uppercase
+  *
+  * @p: String to return
+  *
+  * Return: String
+  */
+
+	char *string_toupper(char *p)
+	{
+
+		int i;
+
+		for (i = 0; p[i] != '\0'; i++)
+		{
+
+			if (p[i] >= 97 && p[i] <= 122)
+			{
+				p[i] = p[i] - 32;
+			}
+
+	}
+
+	return (p);
 }

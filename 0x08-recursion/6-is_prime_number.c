@@ -1,51 +1,30 @@
 #include "main.h"
+
 /**
-* is_prime_number - determine if a number is a prime number
-* @n: int number
-* Return: 1 if prime, 0 otherwise
-*/
+ * find_multipliers - look for multipliers of n.
+ * @n: base number.
+ * @i: iterator number.
+ * Return: 1 if n is prime, 0 otherwise.
+ */
+int find_multipliers(int n, int i)
+{
+	if (i == n)
+		return (1);
+	if (n % i == 0)
+		return (0);
+	else
+		return (find_multipliers(n, i + 1));
+}
+/**
+ * is_prime_number - check if n is prime
+ * @n: base number.
+ *
+ * Return: 1 if n is prime, 0 otherwise.
+ */
 int is_prime_number(int n)
 {
-int prime_number(int divider, int n);
-int divider = 2;
-if (n < 2)
-{
-return (0);
-}
-if (n % n == 0 || n % 1 == 0)
-{
-if (prime_number(divider, n) != 0)
-{
-return (1);
-}
-else
-{
-return (0);
-}
-}
-}
-/**
-* prime_number - helper function, recursive steps taken
-* @n: number given to original function is_prime_number
-* @divider: incrementer divisor
-* Return: 0 if not prime, 1 if prime
-*/
-int prime_number(int divider, int n)
-{
-if (divider < n)
-{
-if (n % divider == 0)
-{
-return (0);
-}
-else
-{
-++divider;
-return (prime_number(divider, n));
-}
-}
-else
-{
-return (1);
-}
+	if (n <= 1)
+		return (0);
+	else
+		return (find_multipliers(n, 2));
 }

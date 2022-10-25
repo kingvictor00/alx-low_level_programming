@@ -1,66 +1,76 @@
-#include <stdlib.h>
 #include "main.h"
+
 /**
-* count_word - helper function to count the number of words in a string
-* @s: string to evaluate
-* Return: number of words
-*/
-int count_word(char *s)
+ * wrdcnt - counts the number of words in a string
+ * @s: string to count
+ *
+ * Return: int of number of words
+ */
+int wrdcnt(char *s)
 {
-int flag, c, w;
-flag = 0;
-w = 0;
-for (c = 0; s[c] != '\0'; c++)
-{
-if (s[c] == ' ')
-flag = 0;
-else if (flag == 0)
-{
-flag = 1;
-w++;
+	int i, n = 0;
+
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] == ' ')
+		{
+			if (s[i + 1] != ' ' && s[i + 1] != '\0')
+				n++;
+		}
+		else if (i == 0)
+			n++;
+	}
+	n++;
+	return (n);
 }
-}
-return (w);
-}
+
 /**
-*strtow - splits a string into words
-* @str: string to splits
-* Return: pointer to an array of strings (Success)
-* or NULL (Error)
-*/
+ * strtow -  splits a string into words
+ *
+ * @str: string to splear
+ *
+ * Return:  pointer to an array of strings (words)
+ */
 char **strtow(char *str)
 {
-char **matrix, *tmp;
-int i, k = 0, len = 0, words, c = 0, start, end;
-while (*(str + len))
-len++;
-words = count_word(str);
-if (words == 0)
-return (NULL);
-matrix = (char **) malloc(sizeof(char *) * (words + 1));
-if (matrix == NULL)
-return (NULL);
-for (i = 0; i <= len; i++)
-{
-if (str[i] == ' ' || str[i] == '\0')
-{
-if (c)
-{
-end = i;
-tmp = (char *) malloc(sizeof(char) * (c + 1));
-if (tmp == NULL)
-return (NULL);
-while (start < end)
-*tmp++ = str[start++];
-*tmp = '\0';
-matrix[k] = tmp - c;
-k++;
-c = 0;
-}
-}
-else if (c++ == 0)
-start = i;
-}
-matrix[k] = NULL;
-return (matrix);
+	int i, j, k, l, n = 0, qa = 0;
+	char **q;
+
+	if (str == NULL || *str == '\0')
+		return (NULL);
+	n = wrdcnt(str);
+	if (n == 1)
+		return (NULL);
+	q = (char **)malloc(n * sizeof(char *));
+	if (q == NULL)
+	return (NULL);
+		q[n - 1] = NULL;
+		i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
+		{
+		for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
+			;
+			j++;
+			q[qa] = (char *)malloc(j * sizeof(char));
+			j--;
+			if (q[qa] == NULL)
+			{
+				for (k = 0; k < qa; k++)
+					free(q[k]);
+				free(q[n - 1]);
+					free(q);
+				return (NULL);
+			}
+			for (l = 0; l < j; l++)
+				q[qa][l] = str[i + l];
+			q[qa][l] = '\0';
+				qa++;
+				i += j;
+		}
+		else
+			i++;
+	}
+	return (q);
 }

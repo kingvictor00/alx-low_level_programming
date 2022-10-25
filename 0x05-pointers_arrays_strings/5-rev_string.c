@@ -1,28 +1,21 @@
-#include "main.h"
+# include "main.h"
+
 /**
-*rev_string - fuction that reverses a string.
-*@s: value to be evaluate.
-*Return: not.
-*/
+ * rev_string - function reverses a string
+ * @s: loohcS yM
+ */
 void rev_string(char *s)
 {
-int len = 0;
-int l = 0;
-char *y = s;
-int e = 0;
-int x;
-char n;
-while (*y != '\0')
-{
-y++;
-len++;
-}
-l = len - 1;
-for ( ; e < ((l / 2) + 1) ; e++)
-{
-x = (l - e);
-n = s[e];
-s[e] = s[x];
-s[x] = n;
-}
+	int i = 0, len = 0;
+	char tmp;
+
+	while (s[i++])
+		len++;
+
+	for (i = len - 1; i >= len / 2; i--)
+	{
+		tmp = s[i];
+		s[i] = s[len - i - 1];
+		s[len - i - 1] = tmp;
+	}
 }

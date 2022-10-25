@@ -1,8 +1,13 @@
+/*
+*File: alphabet ten times
+*Auth: Dr Marcus IMAGWE
+*/
+
 #include "main.h"
 
 /**
  *print_alphabet_x10 - print alphabet 10 times, in lowercase.
- **/
+*/
 
 void print_alphabet_x10(void)
 {
@@ -11,8 +16,8 @@ void print_alphabet_x10(void)
 
 	while (coun++ <= 9)
 	{
-	for (alpha = 97; alpha <= 122; alpha++)
-	_putchar(alpha);
-	_putchar('\n');
+		for (alpha = 97; alpha <= 122; alpha++)
+			_putchar(alpha);
+		_putchar('\n');
 	}
 }

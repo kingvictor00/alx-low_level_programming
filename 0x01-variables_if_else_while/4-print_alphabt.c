@@ -1,22 +1,21 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
+
 /**
- *main - prints the alphabet in lowercase, followed by a new line
+ * main - Entry point
  *
- *Return: Always 0
- **/
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-	char ch;
+char c;
 
-	for (ch = 'a'; ch <= 'z'; ch++)
-	{
-	if (ch != 'q' && ch != 'e')
-	putchar(ch);
-	}
-
-	putchar(10);
-
-	return (0);
+for (c = 'a'; c <= 'z'; c++)
+{
+if ((c != 'e') && (c != 'q'))
+{
+putchar(c);
+}
+}
+putchar('\n');
+return (0);
 }
